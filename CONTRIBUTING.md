@@ -171,7 +171,7 @@ git checkout -b fix/bug-description
 
 **For C++ changes:**
 ```bash
-cd "Cpp Implementation"
+cd "Cpp Impelemtation"
 
 # Edit files
 nano Habibit.cpp
@@ -186,7 +186,7 @@ g++ -std=c++11 -Wall -Wextra -Werror -o habibit Habibit.cpp mainFile.cpp
 
 **For JavaScript changes:**
 ```bash
-cd "Cpp Implementation/Javascript implementation"
+cd "Cpp Impelemtation/Javascript implementation"
 
 # Edit Habibit.js
 # Test in browser console

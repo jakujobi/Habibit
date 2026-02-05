@@ -107,8 +107,8 @@ classDiagram
 - Name and model cannot be empty
 
 **File Locations**:
-- C++: [`Habibit.h:9-16`](../Cpp%20Implementation/Habibit.h#L9-L16)
-- JavaScript: [`Habibit.js:1-7`](../Cpp%20Implementation/Javascript%20implementation/Habibit.js#L1-L7)
+- C++: [`Habibit.h:9-16`](../Cpp%20Impelemtation/Habibit.h#L9-L16)
+- JavaScript: [`Habibit.js:1-7`](../Cpp%20Impelemtation/Javascript%20implementation/Habibit.js#L1-L7)
 
 #### Lender
 **Purpose**: Manages inventory of equipment available for rent
@@ -120,8 +120,8 @@ classDiagram
 - `addEquipment(equipment)`: Adds new equipment to inventory
 
 **File Locations**:
-- C++: [`Habibit.h:18-23`](../Cpp%20Implementation/Habibit.h#L18-L23)
-- JavaScript: [`Habibit.js:9-17`](../Cpp%20Implementation/Javascript%20implementation/Habibit.js#L9-L17)
+- C++: [`Habibit.h:18-23`](../Cpp%20Impelemtation/Habibit.h#L18-L23)
+- JavaScript: [`Habibit.js:9-17`](../Cpp%20Impelemtation/Javascript%20implementation/Habibit.js#L9-L17)
 
 #### Borrower
 **Purpose**: Manages rental transactions for a user borrowing equipment
@@ -141,8 +141,8 @@ total = subtotal + tax
 ```
 
 **File Locations**:
-- C++: [`Habibit.h:27-31`](../Cpp%20Implementation/Habibit.h#L27-L31), [`Habibit.cpp:13-20`](../Cpp%20Implementation/Habibit.cpp#L13-L20)
-- JavaScript: [`Habibit.js:19-32`](../Cpp%20Implementation/Javascript%20implementation/Habibit.js#L19-L32)
+- C++: [`Habibit.h:27-31`](../Cpp%20Impelemtation/Habibit.h#L27-L31), [`Habibit.cpp:13-20`](../Cpp%20Impelemtation/Habibit.cpp#L13-L20)
+- JavaScript: [`Habibit.js:19-32`](../Cpp%20Impelemtation/Javascript%20implementation/Habibit.js#L19-L32)
 
 ---
 
@@ -543,8 +543,8 @@ services:
 
 ## References
 
-- C++ Implementation: [`Cpp Implementation/`](../Cpp%20Implementation/)
-- JavaScript Implementation: [`Cpp Implementation/Javascript implementation/`](../Cpp%20Implementation/Javascript%20implementation/)
+- C++ Implementation: [`Cpp Impelemtation/`](../Cpp%20Impelemtation/)
+- JavaScript Implementation: [`Cpp Impelemtation/Javascript implementation/`](../Cpp%20Impelemtation/Javascript%20implementation/)
 - WordPress Platform: [`habifarm/`](../habifarm/)
 - [Development Guide](./DEVELOPMENT.md)
 - [Contributing Guidelines](../CONTRIBUTING.md)

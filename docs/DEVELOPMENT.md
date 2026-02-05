@@ -51,7 +51,7 @@ Choose your development track:
 
 ```
 Habibit/
-├── Cpp Implementation/              # C++ desktop application
+├── Cpp Impelemtation/              # C++ desktop application
 │   ├── Habibit.h                   # Class definitions
 │   ├── Habibit.cpp                 # Class implementations
 │   ├── mainFile.cpp                # Entry point (modular)
@@ -109,7 +109,7 @@ Habibit/
 **Linux/macOS:**
 ```bash
 # Navigate to directory
-cd "Cpp Implementation"
+cd "Cpp Impelemtation"
 
 # Compile (basic)
 g++ -std=c++11 -o habibit Habibit.cpp mainFile.cpp
@@ -123,7 +123,7 @@ g++ -std=c++11 -Wall -Wextra -g -o habibit Habibit.cpp mainFile.cpp
 
 **Windows (MinGW):**
 ```cmd
-cd "Cpp Implementation"
+cd "Cpp Impelemtation"
 
 :: Compile
 g++ -std=c++11 -o habibit.exe Habibit.cpp mainFile.cpp
@@ -134,7 +134,7 @@ habibit.exe
 
 **Windows (MSVC):**
 ```cmd
-cd "Cpp Implementation"
+cd "Cpp Impelemtation"
 
 :: Compile
 cl /EHsc /std:c++11 Habibit.cpp mainFile.cpp /Fe:habibit.exe
@@ -145,7 +145,7 @@ habibit.exe
 
 **Alternative: Use pre-compiled binary**
 ```cmd
-cd "Cpp Implementation"
+cd "Cpp Impelemtation"
 "Habibit Main.exe"
 ```
 
@@ -161,7 +161,7 @@ cd "Cpp Implementation"
 
 **Option 2: HTML Wrapper**
 ```bash
-cd "Cpp Implementation/Javascript implementation"
+cd "Cpp Impelemtation/Javascript implementation"
 
 # Create index.html
 cat > index.html << 'EOF'
@@ -500,9 +500,9 @@ gdb ./habibit
             "name": "Debug C++",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/Cpp Implementation/habibit",
+            "program": "${workspaceFolder}/Cpp Impelemtation/habibit",
             "args": [],
-            "cwd": "${workspaceFolder}/Cpp Implementation",
+            "cwd": "${workspaceFolder}/Cpp Impelemtation",
             "preLaunchTask": "build"
         }
     ]

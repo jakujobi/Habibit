@@ -29,8 +29,8 @@ Built to demonstrate multi-platform software development with identical business
 - **Cost Calculation**: Automatic pricing with daily rates and 2.5% tax calculation
 - **Multi-Day Rentals**: Support for flexible rental periods with per-day cost breakdown
 - **Three Implementation Platforms**:
-  - C++ desktop CLI application ([`Cpp Implementation/`](./Cpp%20Implementation/))
-  - JavaScript browser-based interface ([`Cpp Implementation/Javascript implementation/`](./Cpp%20Implementation/Javascript%20implementation/))
+  - C++ desktop CLI application ([`Cpp Impelemtation/`](./Cpp%20Impelemtation/))
+  - JavaScript browser-based interface ([`Cpp Impelemtation/Javascript implementation/`](./Cpp%20Impelemtation/Javascript%20implementation/))
   - Full WordPress + WooCommerce web platform ([`habifarm/`](./habifarm/))
 
 **Note**: The WordPress implementation includes WooCommerce Multi-Vendor plugin for marketplace functionality.
@@ -43,14 +43,14 @@ This project showcases professional software engineering practices and domain kn
 
 | Capability | Evidence | Location |
 |------------|----------|----------|
-| **Object-Oriented Design** | Clean class hierarchy (Equipment, Lender, Borrower) with separation of concerns | [`Habibit.h`](./Cpp%20Implementation/Habibit.h), [`Habibit.cpp`](./Cpp%20Implementation/Habibit.cpp) |
-| **Multi-Platform Development** | Same business logic adapted to CLI, browser, and web stack | [`Cpp Implementation/`](./Cpp%20Implementation/), [`habifarm/`](./habifarm/) |
+| **Object-Oriented Design** | Clean class hierarchy (Equipment, Lender, Borrower) with separation of concerns | [`Habibit.h`](./Cpp%20Impelemtation/Habibit.h), [`Habibit.cpp`](./Cpp%20Impelemtation/Habibit.cpp) |
+| **Multi-Platform Development** | Same business logic adapted to CLI, browser, and web stack | [`Cpp Impelemtation/`](./Cpp%20Impelemtation/), [`habifarm/`](./habifarm/) |
 | **E-Commerce Integration** | WordPress + WooCommerce + Multi-Vendor plugin configuration | [`habifarm/app/public/wp-content/plugins/`](./habifarm/app/public/wp-content/plugins/) |
 | **Containerization & DevOps** | Docker-based deployment with Nginx, PHP-FPM, MySQL configuration | [`habifarm/conf/`](./habifarm/conf/) |
 | **Database Design** | MySQL integration for persistent data storage | [`habifarm/app/sql/local.sql`](./habifarm/app/sql/local.sql) |
 | **Web Server Configuration** | Custom Nginx configs with WordPress optimization | [`habifarm/conf/nginx/`](./habifarm/conf/nginx/) |
-| **Cost Modeling** | Tax calculation, multi-day rental pricing logic | [`Habibit.cpp:14-20`](./Cpp%20Implementation/Habibit.cpp#L14-L20) |
-| **Cross-Language Translation** | Identical algorithms in C++ and JavaScript | Compare [`Habibit.cpp`](./Cpp%20Implementation/Habibit.cpp) vs [`Habibit.js`](./Cpp%20Implementation/Javascript%20implementation/Habibit.js) |
+| **Cost Modeling** | Tax calculation, multi-day rental pricing logic | [`Habibit.cpp:14-20`](./Cpp%20Impelemtation/Habibit.cpp#L14-L20) |
+| **Cross-Language Translation** | Identical algorithms in C++ and JavaScript | Compare [`Habibit.cpp`](./Cpp%20Impelemtation/Habibit.cpp) vs [`Habibit.js`](./Cpp%20Impelemtation/Javascript%20implementation/Habibit.js) |
 
 ---
 
@@ -93,12 +93,12 @@ graph TD
 
 **Platform Implementations**:
 
-1. **C++ CLI** ([`Cpp Implementation/`](./Cpp%20Implementation/))
+1. **C++ CLI** ([`Cpp Impelemtation/`](./Cpp%20Impelemtation/))
    - Compiled executable with console I/O
    - Files: `Habibit.h`, `Habibit.cpp`, `mainFile.cpp`
    - Build: `g++ -std=c++11 -o habibit Habibit.cpp mainFile.cpp`
 
-2. **JavaScript Browser Client** ([`Cpp Implementation/Javascript implementation/Habibit.js`](./Cpp%20Implementation/Javascript%20implementation/Habibit.js))
+2. **JavaScript Browser Client** ([`Cpp Impelemtation/Javascript implementation/Habibit.js`](./Cpp%20Impelemtation/Javascript%20implementation/Habibit.js))
    - Browser-compatible with `prompt()` dialogs
    - Same class structure as C++
 
@@ -136,7 +136,7 @@ See [Architecture Documentation](./docs/ARCHITECTURE.md) for detailed system des
 
 ```bash
 # Navigate to C++ implementation directory
-cd "Cpp Implementation"
+cd "Cpp Impelemtation"
 
 # Compile the application
 g++ -std=c++11 -o habibit Habibit.cpp mainFile.cpp
@@ -158,7 +158,7 @@ habibit.exe
 
 ```bash
 # Open in browser (no build required)
-cd "Cpp Implementation/Javascript implementation"
+cd "Cpp Impelemtation/Javascript implementation"
 # Open Habibit.js in browser developer console, or include in an HTML file
 ```
 
@@ -341,7 +341,7 @@ No configuration files required. All data stored in-memory during runtime.
 
 **Compile and test:**
 ```bash
-cd "Cpp Implementation"
+cd "Cpp Impelemtation"
 
 # Build with warnings enabled
 g++ -std=c++11 -Wall -Wextra -o habibit Habibit.cpp mainFile.cpp
