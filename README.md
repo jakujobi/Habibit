@@ -319,7 +319,7 @@ TABLE_PREFIX=hb_
 
 Edit `habifarm/app/public/wp-config.php` with database credentials. Use [WordPress Secret Key Generator](https://api.wordpress.org/secret-key/1.1/salt/) for security keys.
 
-**Current configuration** (development only):
+**Current configuration** (development only - tracked in repository):
 ```php
 define('DB_NAME', 'local');
 define('DB_USER', 'root');
@@ -327,7 +327,11 @@ define('DB_PASSWORD', 'root');
 define('DB_HOST', 'localhost');
 ```
 
-⚠️ **Security Warning**: Change default credentials before deployment. See [SECURITY.md](./SECURITY.md).
+⚠️ **Security Warning**: 
+- The repository includes `wp-config.php` with **development credentials** for easy local setup
+- **NEVER use these credentials in production**
+- Update all database credentials and regenerate security keys before any public deployment
+- See [SECURITY.md](./SECURITY.md) for complete deployment checklist
 
 ### C++ / JavaScript Configuration
 

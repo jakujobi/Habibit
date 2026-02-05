@@ -6,9 +6,10 @@
 .env.local
 .env.*.local
 
-# WordPress
-wp-config.php
+# WordPress (note: wp-config.php is tracked with development credentials)
+# Production deployments should update credentials before use
 .htaccess
+wp-config-local.php
 
 # Build artifacts
 *.exe
