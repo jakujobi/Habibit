@@ -54,13 +54,13 @@ Habibit is a **peer-to-peer equipment rental marketplace** that demonstrates the
 
 ### Technology Choices
 
-| Layer | C++ | JavaScript | WordPress |
-|-------|-----|------------|-----------|
-| **Language** | C++11 | ES5+ | PHP 7.4+ |
-| **Storage** | In-memory (vectors) | In-memory (arrays) | MySQL database |
-| **UI** | Console I/O | Browser prompts | Web interface |
-| **State** | Session-based | Session-based | Persistent |
-| **Deployment** | Compiled binary | Static file | Docker containers |
+| Layer                | C++                 | JavaScript         | WordPress         |
+| -------------------- | ------------------- | ------------------ | ----------------- |
+| **Language**   | C++11               | ES5+               | PHP 7.4+          |
+| **Storage**    | In-memory (vectors) | In-memory (arrays) | MySQL database    |
+| **UI**         | Console I/O         | Browser prompts    | Web interface     |
+| **State**      | Session-based       | Session-based      | Persistent        |
+| **Deployment** | Compiled binary     | Static file        | Docker containers |
 
 ---
 
@@ -76,18 +76,18 @@ classDiagram
         +double costPerDay
         +Equipment(name, modelName, costPerDay)
     }
-    
+  
     class Lender {
         +vector~Equipment~ equipmentList
         +addEquipment(Equipment)
     }
-    
+  
     class Borrower {
         +vector~Equipment~ borrowedEquipment
         +int daysToRent
         +calculateTotalCost() double
     }
-    
+  
     Lender "1" --> "*" Equipment : manages
     Borrower "1" --> "*" Equipment : borrows
 ```
@@ -95,45 +95,57 @@ classDiagram
 ### Entity Definitions
 
 #### Equipment
+
 **Purpose**: Represents a single piece of rentable equipment
 
 **Properties**:
+
 - `name` (string): Equipment type (e.g., "Tractor", "Plow")
 - `modelName` (string): Specific model identifier (e.g., "John Deere 5055E")
 - `costPerDay` (double): Daily rental rate in USD
 
 **Invariants**:
+
 - Cost must be non-negative
 - Name and model cannot be empty
 
 **File Locations**:
+
 - C++: [`Habibit.h:9-16`](../Cpp%20Impelemtation/Habibit.h#L9-L16)
 - JavaScript: [`Habibit.js:1-7`](../Cpp%20Impelemtation/Javascript%20implementation/Habibit.js#L1-L7)
 
 #### Lender
+
 **Purpose**: Manages inventory of equipment available for rent
 
 **Properties**:
+
 - `equipmentList` (vector/array): Collection of Equipment objects
 
 **Methods**:
+
 - `addEquipment(equipment)`: Adds new equipment to inventory
 
 **File Locations**:
+
 - C++: [`Habibit.h:18-23`](../Cpp%20Impelemtation/Habibit.h#L18-L23)
 - JavaScript: [`Habibit.js:9-17`](../Cpp%20Impelemtation/Javascript%20implementation/Habibit.js#L9-L17)
 
 #### Borrower
+
 **Purpose**: Manages rental transactions for a user borrowing equipment
 
 **Properties**:
+
 - `borrowedEquipment` (vector/array): Items currently selected for rental
 - `daysToRent` (integer): Duration of rental period
 
 **Methods**:
+
 - `calculateTotalCost()`: Computes total with 2.5% tax
 
 **Formula**:
+
 ```
 subtotal = Σ(equipment.costPerDay × daysToRent)
 tax = subtotal × 0.025
@@ -141,6 +153,7 @@ total = subtotal + tax
 ```
 
 **File Locations**:
+
 - C++: [`Habibit.h:27-31`](../Cpp%20Impelemtation/Habibit.h#L27-L31), [`Habibit.cpp:13-20`](../Cpp%20Impelemtation/Habibit.cpp#L13-L20)
 - JavaScript: [`Habibit.js:19-32`](../Cpp%20Impelemtation/Javascript%20implementation/Habibit.js#L19-L32)
 
@@ -151,12 +164,14 @@ total = subtotal + tax
 ### 1. C++ CLI Application
 
 **Files**:
+
 - `Habibit.h` - Class definitions
 - `Habibit.cpp` - Class implementations
 - `mainFile.cpp` - Entry point and UI logic
 - `Habibit Main.cpp` - Alternative combined implementation
 
 **Architecture**:
+
 ```
 ┌─────────────────────────────────┐
 │        Main Entry Point         │
@@ -180,6 +195,7 @@ total = subtotal + tax
 ```
 
 **Build Process**:
+
 ```bash
 g++ -std=c++11 -o habibit Habibit.cpp mainFile.cpp
 ```
@@ -191,9 +207,11 @@ g++ -std=c++11 -o habibit Habibit.cpp mainFile.cpp
 ### 2. JavaScript Browser Client
 
 **Files**:
+
 - `Habibit.js` - Complete implementation (classes + UI)
 
 **Architecture**:
+
 ```
 ┌─────────────────────────────────┐
 │       Browser Runtime           │
@@ -225,6 +243,7 @@ g++ -std=c++11 -o habibit Habibit.cpp mainFile.cpp
 ### 3. WordPress + WooCommerce Platform
 
 **Directory Structure**:
+
 ```
 habifarm/
 ├── app/
@@ -247,6 +266,7 @@ habifarm/
 ```
 
 **Architecture**:
+
 ```
 ┌─────────────────────────────────────────────┐
 │              User Browser                    │
@@ -274,29 +294,30 @@ habifarm/
 ```
 
 **Key Plugins**:
+
 1. **WooCommerce**: E-commerce framework
+
    - Product management (equipment listings)
    - Cart and checkout
    - Order processing
+2. **Multi-Vendor Marketplace**:
 
-2. **Multi-Vendor Marketplace**: 
    - Vendor registration (lenders)
    - Product assignment to vendors
    - Commission/earnings tracking
-
 3. **Elementor**: Page builder for custom layouts
-
 4. **Ajax Search**: Equipment discovery
 
 **Data Mapping**:
-| Domain Concept | WordPress/WooCommerce Implementation |
-|----------------|--------------------------------------|
-| Equipment | WooCommerce Product (type: simple or rental) |
-| Lender | Vendor (Multi-Vendor role) |
-| Borrower | Customer (WooCommerce role) |
-| Daily Cost | Product Price (per day) |
-| Rental Duration | Custom product meta field |
-| Tax (2.5%) | WooCommerce Tax Rate |
+
+| Domain Concept  | WordPress/WooCommerce Implementation         |
+| --------------- | -------------------------------------------- |
+| Equipment       | WooCommerce Product (type: simple or rental) |
+| Lender          | Vendor (Multi-Vendor role)                   |
+| Borrower        | Customer (WooCommerce role)                  |
+| Daily Cost      | Product Price (per day)                      |
+| Rental Duration | Custom product meta field                    |
+| Tax (2.5%)      | WooCommerce Tax Rate                         |
 
 ---
 
@@ -315,7 +336,7 @@ sequenceDiagram
 
     U->>A: Create Account / Sign In
     A-->>U: Authentication Success
-    
+  
     alt User is Lender
         U->>L: Add Equipment
         L->>E: Store Equipment
@@ -332,37 +353,12 @@ sequenceDiagram
     end
 ```
 
-### Cost Calculation Flow
-
-```mermaid
-flowchart LR
-    A[Select Equipment] --> B[Set Rental Days]
-    B --> C{For Each Item}
-    C --> D[Daily Cost × Days]
-    D --> E[Sum All Items]
-    E --> F[Calculate Tax: subtotal × 0.025]
-    F --> G[Final Total: subtotal + tax]
-    G --> H[Display to User]
-```
-
-**Implementation** (C++):
-```cpp
-double Borrower::calculateTotalCost() const {
-    double totalCost = 0.0;
-    for (const Equipment& equipment : borrowedEquipment) {
-        totalCost += equipment.costPerDay;  // Note: multiply by daysToRent in UI
-    }
-    return totalCost + (totalCost * 0.025); // 2.5% tax
-}
-```
-
----
-
 ## WordPress Platform Details
 
 ### Database Schema (Simplified)
 
 **Key Tables**:
+
 ```sql
 wp_posts              -- Equipment (post_type = 'product')
 ├── ID                -- Product ID
@@ -387,11 +383,13 @@ wp_woocommerce_order_items  -- Rentals
 ### Plugin Integration Points
 
 **WooCommerce Hooks** (potential customization):
+
 - `woocommerce_add_to_cart`: Capture rental duration
 - `woocommerce_calculate_totals`: Apply 2.5% tax
 - `woocommerce_order_status_completed`: Trigger delivery (5-day promise)
 
 **Multi-Vendor Hooks**:
+
 - Vendor dashboard customization
 - Commission calculation
 - Payout management
@@ -402,32 +400,36 @@ wp_woocommerce_order_items  -- Rentals
 
 ### Threat Model
 
-| Asset | Threat | Mitigation (C++/JS) | Mitigation (WordPress) |
-|-------|--------|---------------------|------------------------|
-| User Passwords | Plain text storage | ⚠️ None - educational only | bcrypt hashing via WordPress |
-| Equipment Data | Unauthorized modification | In-memory only (session) | Role-based access control |
-| Rental Transactions | Price manipulation | Fixed calculation logic | Server-side validation |
-| Database | SQL injection | N/A | WordPress escaping functions |
+| Asset               | Threat                    | Mitigation (C++/JS)          | Mitigation (WordPress)       |
+| ------------------- | ------------------------- | ---------------------------- | ---------------------------- |
+| User Passwords      | Plain text storage        | ⚠️ None - educational only | bcrypt hashing via WordPress |
+| Equipment Data      | Unauthorized modification | In-memory only (session)     | Role-based access control    |
+| Rental Transactions | Price manipulation        | Fixed calculation logic      | Server-side validation       |
+| Database            | SQL injection             | N/A                          | WordPress escaping functions |
 
 ⚠️ **Security Warning**: C++ and JavaScript implementations store passwords in plain text. **Not suitable for production use**.
 
 ### WordPress Security
 
 **Authentication**:
+
 - WordPress core user authentication
 - Session management via cookies
 - Password hashing (bcrypt)
 
 **Authorization**:
+
 - Role-based permissions (Administrator, Vendor, Customer)
 - Capability checks for actions
 
 **Data Protection**:
+
 - Prepared statements for SQL queries
 - Input sanitization via WordPress functions
 - Output escaping
 
 **File Locations**:
+
 - Security keys: `wp-config.php` (use [generator](https://api.wordpress.org/secret-key/1.1/salt/))
 
 ---
@@ -485,6 +487,7 @@ services:
 ```
 
 **Configuration Files**:
+
 - Nginx: `habifarm/conf/nginx/*.conf.hbs`
 - PHP-FPM: `habifarm/conf/php/php.ini.hbs`
 - MySQL: `habifarm/conf/mysql/my.cnf.hbs`
@@ -496,19 +499,22 @@ services:
 ## Performance Considerations
 
 ### C++ Application
+
 - **Memory**: O(n) where n = number of equipment items
 - **Startup**: <100ms
 - **Scalability**: Limited by RAM
 
 ### JavaScript Application
+
 - **Memory**: O(n) JavaScript objects
 - **Performance**: Synchronous prompts block UI
 - **Scalability**: Browser heap limits (~1-2GB)
 
 ### WordPress Platform
+
 - **Database**: Indexed queries for product search
 - **Caching**: WordPress object cache, opcache for PHP
-- **Bottlenecks**: 
+- **Bottlenecks**:
   - MySQL queries (optimize with indexes)
   - PHP execution time (increase `max_execution_time`)
   - Concurrent users (scale horizontally with load balancer)
@@ -520,21 +526,22 @@ services:
 **Potential Enhancements**:
 
 1. **RESTful API Layer**:
+
    - Decouple frontend from backend
    - Enable mobile app development
    - Unify C++/JS/WordPress with common API
-
 2. **Microservices**:
+
    - Equipment Service
    - User Service
    - Rental/Booking Service
    - Payment Service
-
 3. **Real-time Features**:
+
    - WebSocket for availability updates
    - Live chat support
-
 4. **Data Analytics**:
+
    - Equipment utilization tracking
    - Revenue reporting
    - Demand forecasting
@@ -548,3 +555,5 @@ services:
 - WordPress Platform: [`habifarm/`](../habifarm/)
 - [Development Guide](./DEVELOPMENT.md)
 - [Contributing Guidelines](../CONTRIBUTING.md)
+
+<style>#mermaid-1770276618551{font-family:sans-serif;font-size:16px;fill:#333;}#mermaid-1770276618551 .error-icon{fill:#552222;}#mermaid-1770276618551 .error-text{fill:#552222;stroke:#552222;}#mermaid-1770276618551 .edge-thickness-normal{stroke-width:2px;}#mermaid-1770276618551 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1770276618551 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1770276618551 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1770276618551 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1770276618551 .marker{fill:#333333;}#mermaid-1770276618551 .marker.cross{stroke:#333333;}#mermaid-1770276618551 svg{font-family:sans-serif;font-size:16px;}#mermaid-1770276618551 .label{font-family:sans-serif;color:#333;}#mermaid-1770276618551 .label text{fill:#333;}#mermaid-1770276618551 .node rect,#mermaid-1770276618551 .node circle,#mermaid-1770276618551 .node ellipse,#mermaid-1770276618551 .node polygon,#mermaid-1770276618551 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-1770276618551 .node .label{text-align:center;}#mermaid-1770276618551 .node.clickable{cursor:pointer;}#mermaid-1770276618551 .arrowheadPath{fill:#333333;}#mermaid-1770276618551 .edgePath .path{stroke:#333333;stroke-width:1.5px;}#mermaid-1770276618551 .flowchart-link{stroke:#333333;fill:none;}#mermaid-1770276618551 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid-1770276618551 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid-1770276618551 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-1770276618551 .cluster text{fill:#333;}#mermaid-1770276618551 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:sans-serif;font-size:12px;background:hsl(80,100%,96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1770276618551:root{--mermaid-font-family:sans-serif;}#mermaid-1770276618551:root{--mermaid-alt-font-family:sans-serif;}#mermaid-1770276618551 flowchart-v2{fill:apa;}</style>
