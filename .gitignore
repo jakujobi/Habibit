@@ -1,2 +1,44 @@
 
 *.psd
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# WordPress (note: wp-config.php is tracked with development credentials)
+# Production deployments should update credentials before use
+.htaccess
+wp-config-local.php
+
+# Build artifacts
+*.exe
+*.out
+*.o
+habibit
+habibit_test
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+*.sql
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Dependencies (if added later)
+node_modules/
+vendor/
